@@ -11,11 +11,18 @@
 <body>
 
     <section class="grid">
-        <button title="menu" class="menu">
-            <div class="icon">
+        <div class="menu" id="menu">
+            <div class="icon" id="icon">
                 <i class="fa-solid fa-check"></i>
             </div>
-        </button>
+            <div class="menu-option">
+                <div class="opzione arrivato" data-icon="fa-check"><i class="fa-solid fa-check"></i> Arrivato</div>
+                <div class="opzione rifiuta" data-icon="fa-x"><i class="fa-solid fa-x"></i> Rifiuta</div>
+                <div class="opzione conferma" data-icon="fa-check"><i class="fa-solid fa-check"></i> Conferma</div>
+                <div class="opzione no-show" data-icon="fa-check"><i class="fa-solid fa-check"></i> No Show</div>
+                <div class="opzione lista-attesa" data-icon="fa-book-open"><i class="fa-solid fa-book-open"></i> Lista d'Attesa</div>
+            </div>
+        </div>
         <div class="name">
             <h2><span id="nome">Nome</span> <span id="cognome">Cognome</span></h2>
         </div>
@@ -32,6 +39,60 @@
         <button class="elim"><i class="fa-solid fa-trash"></i></i> Elimina</button>
         <button class="sala">Sala X-84</button>
     </section>
+    
+    
+    <script>
+        const menu = document.querySelector('.menu');
+        const menuOption = document.querySelector('.menu-option');
 
+        menu.addEventListener('click', () => {
+            menuOption.style.display = menuOption.style.display === 'flex' ? 'none' : 'flex';
+        });
+    </script>
+    <script>
+        const menuOptions = document.querySelectorAll('.menu-option > div');
+        const icon = document.querySelector('.icon i');
+
+        menuOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                const newIconClass = option.getAttribute('data-icon');
+                icon.className = `fa-solid ${newIconClass}`;
+            });
+        });
+    </script>
+    <script>
+        const listaAttesaDiv = document.querySelector('.lista-attesa');
+        const noShowDiv = document.querySelector('.no-show');
+        const confermaDiv = document.querySelector('.conferma');
+        const rifiutaDiv = document.querySelector('.rifiuta');
+        const arrivatoDiv = document.querySelector('.arrivato');
+        const menuDiv = document.getElementById('menu');
+        const iconDiv = document.getElementById('icon');
+
+        listaAttesaDiv.addEventListener('click', () => {
+            menuDiv.style.backgroundColor = 'rgb(126, 2, 126)';
+            iconDiv.style.color = 'rgb(126, 2, 126)';
+        });
+
+        noShowDiv.addEventListener('click', () => {
+            menuDiv.style.backgroundColor = 'rgb(141, 193, 226)';
+            iconDiv.style.color = 'rgb(141, 193, 226)';
+        });
+
+        confermaDiv.addEventListener('click', () => {
+            menuDiv.style.backgroundColor = 'rgb(0, 126, 0)';
+            iconDiv.style.color = 'rgb(0, 126, 0)';
+        });
+
+        rifiutaDiv.addEventListener('click', () => {
+            menuDiv.style.backgroundColor = 'rgb(235, 52, 52)';
+            iconDiv.style.color = 'rgb(235, 52, 52)';
+        });
+
+        arrivatoDiv.addEventListener('click', () => {
+            menuDiv.style.backgroundColor = 'rgb(102, 159, 194)';
+            iconDiv.style.color = 'rgb(102, 159, 194)';
+        });
+    </script>
 </body>
 </html>

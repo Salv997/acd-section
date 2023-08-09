@@ -23,7 +23,7 @@ body{
         "f f f"
         "g h i";
     row-gap: 0.7rem;
-    overflow: hidden;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 .menu{
     grid-area: b;
@@ -32,16 +32,52 @@ body{
     justify-self: self-end;
     display: grid;
     place-content: center;
-    color: green;
     cursor: pointer;
+    position: relative;
+    user-select:none;
+    border-top-right-radius: 0.9rem;
 }
+.menu-option{
+    border: 1px solid red;
+    position: absolute;
+    width: 12rem;
+    right: 3rem;
+    background-color: white;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem;
+    display: none;
+}
+.opzione{
+    display: grid;
+    grid-template-columns: 2rem auto;
+    align-items: center;
+}
+.arrivato{
+    color:rgb(102, 159, 194)
+}
+.rifiuta{
+    color: rgb(235, 52, 52);
+}
+.conferma{
+    color: green;
+}
+.no-show{
+    color:rgb(141, 193, 226)
+}
+.lista-attesa{
+    color: purple;
+}
+
+
 .menu .icon{
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 2rem;
+    height: 2rem;
     border-radius: 50%;
     background-color: white;
     display: grid;
     place-content: center;
+    font-size: 0.8rem;
 }
 .name{
     grid-area: a;
@@ -104,6 +140,7 @@ body{
     color: white;
     font-size: 0.9rem;
     cursor: pointer;
+    border-bottom-right-radius: 0.8rem;
 }
 @media (min-width: 40rem){
     .grid{
@@ -120,6 +157,9 @@ body{
     .menu{
         justify-self: self-start;
         width: 100%;
+        border-top-left-radius: 0.9rem;
+        border-bottom-left-radius: 0.9rem;
+        border-top-right-radius: 0;
     }
     .mod{
         grid-area: h;
@@ -147,5 +187,28 @@ body{
         border:none;
         border-left: 0.15rem solid orange;
         height: 100%;
+        border-bottom-right-radius: 0;
+        border-top-right-radius: 0.8rem;
     }
+    .menu-option{
+        border: 1px solid red;
+        position: absolute;
+        width: 12rem;
+        left: 7rem;
+        background-color: white;
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 1rem;
+        display: none;
+    }
+    .menu .icon{
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 50%;
+        background-color: white;
+        display: grid;
+        place-content: center;
+        font-size: 1rem;
+    }
+    
 }
